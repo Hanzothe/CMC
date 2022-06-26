@@ -13,7 +13,6 @@ function SelectBox({ onChangeCallback }) {
         <option value="5">Colher de Chá</option>
         <option value="15">Colher de Sopa</option>
         <option value="5">Colher de Sobremesa</option>
-        <option value="2">Colher de Café</option>
       </select>
     </div>
   );

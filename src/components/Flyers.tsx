@@ -4,7 +4,7 @@ import dropimg from "../images/drop-thin.svg";
 import coffeeimg from "../images/coffee-thin.svg";
 import Calcml from "./Calcml";
 
-export default function Flyers() {
+export default function Flyers({}) {
   const [measureType, setMeasureType] = useState<String | null>(null);
   const [outputType, setOutputType] = useState<Number | null>(null);
 
@@ -38,8 +38,6 @@ export default function Flyers() {
   return (
     <div className="flex flex-row items-center gap-6">
       {Object.entries(measureTypes).map(([key, value]) => {
-        const teste = outputType;
-        console.log(teste);
         return (
           <>
             <button
