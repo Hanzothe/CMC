@@ -1,6 +1,10 @@
 import React from "react";
 
-function SelectBox({ onChangeCallback }) {
+interface ISelectBox {
+  onChangeCallback: React.Dispatch<any>;
+}
+
+const SelectBox: React.FC<ISelectBox> = ({ onChangeCallback }) => {
   return (
     <div>
       <select
@@ -16,6 +20,6 @@ function SelectBox({ onChangeCallback }) {
       </select>
     </div>
   );
-}
+};
 
 export default SelectBox;

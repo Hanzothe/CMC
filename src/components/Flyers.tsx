@@ -1,12 +1,15 @@
-import React, { useDebugValue, useState } from "react";
+import { useState } from "react";
+
 import barbellimg from "../images/barbell-thin.svg";
 import dropimg from "../images/drop-thin.svg";
 import coffeeimg from "../images/coffee-thin.svg";
-import Calcml from "./Calcml";
 
-export default function Flyers({}) {
+interface IFlyers {
+  setOutputType: React.Dispatch<React.SetStateAction<Number | null>>;
+}
+
+const Flyers: React.FC<IFlyers> = ({ setOutputType }) => {
   const [measureType, setMeasureType] = useState<String | null>(null);
-  const [outputType, setOutputType] = useState<Number | null>(null);
 
   const measureTypes = {
     ML: {
@@ -57,4 +60,6 @@ export default function Flyers({}) {
       })}
     </div>
   );
-}
+};
+
+export default Flyers;
