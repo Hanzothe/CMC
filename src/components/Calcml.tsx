@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SelectBox from "./SelectBox";
 import "../global.css";
 
-export default function Calcml() {
+const CalcML = () => {
   const [numberToBeMeasure, setNumberToBeMeasure] = useState(0);
-  const [selectedInputMeasure, setSelectedInputMeasure] =
-    useState<Number | null>(null);
+  const [selectedInputMeasure, setSelectedInputMeasure] = useState<number>(0);
+
   const Result = selectedInputMeasure * numberToBeMeasure;
 
-  function getNumberToBeMeasure(val) {
+  const getNumberToBeMeasure = (val: any) => {
     setNumberToBeMeasure(val.target.value);
-  }
-  function getResult(result: Number) {
+  };
+
+  const getResult = (result: number) => {
     if (result > 1000) return `${result / 1000}l`;
     const newResult = `${Result}ml`;
     return newResult;
-  }
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-4 items-center text-white text-2xl ">
@@ -32,4 +34,6 @@ export default function Calcml() {
       </div>
     </div>
   );
-}
+};
+
+export default CalcML;
