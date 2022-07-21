@@ -3,7 +3,9 @@ import "../global.css";
 import SelectBox from "./SelectBox";
 
 const Calcg = () => {
-  const [selectedInputMeasure, setSelectedInputMeasure] = useState<any>(); //o objeto selectedmeasure armazena o valor clicado na selectbox
+  const [selectedInputMeasure, setSelectedInputMeasure] = useState([]); //o objeto selectedmeasure armazena o valor clicado na selectbox
+  const [a, setA] = useState<Number>(0);
+  const [optionsState, setOptionsState] = useState(0);
 
   interface IOption {
     name: string;
@@ -96,14 +98,66 @@ const Calcg = () => {
       colherDeSobremesa: 5,
     },
   ];
+  const Sopa = optionsG.map((e) => e.colherSopa);
+  const Cha = optionsG.map((e) => e.colherCha);
+  const Xicara = optionsG.map((e) => e.xicara);
+  const America = optionsG.map((e) => e.copoAmericano);
+  const Sobre = optionsG.map((e) => e.colherDeSobremesa);
 
+  const X2 = Sopa[`${a}`];
+
+  if (selectedInputMeasure == "colherSopa") {
+    console.log(X2);
+  }
+  if (selectedInputMeasure == "colherCha") {
+    console.log(Cha[`${a}`]);
+  }
+  if (selectedInputMeasure == "xicara") {
+    console.log(Xicara[`${a}`]);
+  }
+  if (selectedInputMeasure == "copoAmericano") {
+    console.log(America[`${a}`]);
+  }
+  if (selectedInputMeasure == "colherDeSobremesa") {
+    console.log(Sobre[`${a}`]);
+  }
+
+  console.log(selectedInputMeasure[0]); //Hanil, basicamente é tudo sobre isso: Eu queria poder acessar só o segundo valor ou só o primeiro do array pra poder terminar a lógica, tô na reta final
   return (
-    <div className="flex flex-col items-center">
-      <span>Massa</span>
-      {Object.entries(optionsG).forEach(([key, value]) => {
-        console.log(key, value);
-      })}
-    </div>
+    <>
+      <div className="flex flex-col items-center">
+        <span>Massa</span>
+        <span className="text-base ">O que você tem?</span>
+        <select
+          className="border-solid border-brandB text-sm border-2 h-10 w-60 rounded-lg text-black text-center"
+          onChange={(e) => setA(e.target.value)}
+        >
+          <option value="0">Farinha de Trigo</option>
+          <option value="1">Açúcar</option>
+          <option value="2">Chocolate em Pó</option>
+          <option value="3">Líquidos</option>
+          <option value="4">Amido de Milho</option>
+          <option value="5">Polvilho</option>
+          <option value="6">Fubá</option>
+          <option value="7">Manteiga</option>
+          <option value="8">Café</option>
+          <option value="9">Coco Ralado</option>
+        </select>
+        <span className="text-base ">Quanto você tem?</span>
+        <input
+          type="Number"
+          className="border-solid border-brandB text-sm border-2 h-10 w-60 rounded-lg text-black text-center"
+        />
+        <SelectBox onChangeCallback={setSelectedInputMeasure} />
+        <span className="text-base ">Você quer converter em?</span>
+        <SelectBox />
+        <span className="text-base ">O Resultado da conversão!</span>
+        <input
+          type="Number"
+          className="border-solid border-brandB text-sm border-2 h-10 w-60 rounded-lg text-black text-center"
+        />
+      </div>
+    </>
   );
 };
 

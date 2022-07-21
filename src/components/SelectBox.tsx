@@ -12,11 +12,15 @@ const SelectBox: React.FC<ISelectBox> = ({ onChangeCallback }) => {
         onChange={(e) => onChangeCallback(e.target.value)}
       >
         <option value="">Selecione uma medida</option>
-        <option value="250">Xícara de Chá</option>
-        <option value="200">Copo Americano</option>
-        <option value="5">Colher de Chá</option>
-        <option value="15">Colher de Sopa</option>
-        <option value="5">Colher de Sobremesa</option>
+        <option value={["xicara", "xicara2"]}> Xícara de Chá </option>
+        <option value={["copoAmericano", "copoAmericano2"]}>
+          Copo Americano
+        </option>
+        <option value={["colherCha", "colherCha2"]}>Colher de Chá</option>
+        <option value={["colherSopa", "colherSopa2"]}>Colher de Sopa</option>
+        <option value={["colherDeSobremesa", "colherDeSobremesa2"]}>
+          Colher de Sobremesa
+        </option>
       </select>
     </div>
   );

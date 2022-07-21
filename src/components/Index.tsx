@@ -5,9 +5,9 @@ import CalcML from "./CalcML";
 import Flyers from "./Flyers";
 
 const Index = () => {
-  const [outputType, setOutputType] = useState<Number | null>(null);
+  // const [outputType, setOutputType] = useState<Number | null>(null);
 
-  console.log("outputType: ", outputType);
+  // console.log("outputType: ", outputType);
 
   return (
     <>
