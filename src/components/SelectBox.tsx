@@ -1,22 +1,39 @@
 import React from "react";
 
+interface IOption {
+  name: string;
+  value: string | number;
+}
 interface ISelectBox {
+  title?: string;
+  className?: string;
+  options: IOption[];
+  placeholder: string;
   onChangeCallback: React.Dispatch<any>;
 }
 
-const SelectBox: React.FC<ISelectBox> = ({ onChangeCallback }) => {
+const SelectBox: React.FC<ISelectBox> = ({
+  title,
+  options,
+  className,
+  placeholder,
+  onChangeCallback,
+}) => {
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      {title && <span className="text-base">{title}</span>}
       <select
-        className="text-black  text-xl text-center rounded-lg h-10 w-60 relative   "
+        className={
+          className
+            ? className
+            : "text-black text-xl text-center rounded-lg h-10 w-60 relative"
+        }
         onChange={(e) => onChangeCallback(e.target.value)}
+        placeholder={placeholder}
       >
-        <option value="">Selecione uma medida</option>
-        <option value="xicara"> Xícara de Chá </option>
-        <option value="copoAmericano">Copo Americano</option>
-        <option value="colherCha">Colher de Chá</option>
-        <option value="colherSopa">Colher de Sopa</option>
-        <option value="colherDeSobremesa">Colher de Sobremesa</option>
+        {options.map((option) => (
+          <option value={option.value}>{option.name}</option>
+        ))}
       </select>
     </div>
   );
