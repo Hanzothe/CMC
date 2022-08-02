@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+
 import SelectBox from "./SelectBox";
+import Input from "./Input";
 
 import { optionsG, optionsIngredients, optionsMeasure } from "../data";
 
@@ -74,10 +76,10 @@ const Calcg = () => {
         />
 
         <span className="text-base">Quanto você tem?</span>
-        <input
-          onChange={(e) => setInputValue(e.target.value)}
-          type="Number"
-          className="border-solid border-brandB text-sm border-2 h-10 w-60 rounded-lg text-black text-center"
+        <Input
+          value={inputValue}
+          onChangeCallback={setInputValue}
+          type="number"
         />
 
         <SelectBox
@@ -96,12 +98,7 @@ const Calcg = () => {
         />
 
         <span className="text-base ">O Resultado da conversão!</span>
-        <input
-          disabled
-          value={result}
-          type="Number"
-          className="border-solid border-brandB text-sm border-2 h-10 w-60 rounded-lg text-black text-center"
-        />
+        <Input disabled value={result} type="number" />
       </div>
     </>
   );
